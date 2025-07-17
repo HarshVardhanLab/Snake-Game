@@ -1,4 +1,4 @@
-from turtle import Turtle, Screen
+from turtle import Turtle
 STARTING_POSITION = [(0,0),(-20,0),(-40,0)]
 MOVE_DISTANCE = 20
 UP = 90
@@ -54,3 +54,10 @@ class Snake():
     def right(self):
         if self.head.heading() != LEFT:
             self.head.setheading(RIGHT)
+
+    def reset(self):
+        for seg in self.segments:
+            seg.goto(1000, 1000)
+        self.segments.clear()
+        self.create_snake()
+        self.head = self.segments[0]
